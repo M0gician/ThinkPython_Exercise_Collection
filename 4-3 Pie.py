@@ -9,28 +9,44 @@ bk(bob, 130)
 pd(bob)
 
 def mult_poly(t, Num_of_Tri, r):
+    '''Draws three pie graphs in an increasing sequence by adding one extra side.
+    t: Turtle
+    Num_of_Tri: Sides that the pie has
+    r: Radius
+    '''
     for i in range(4):
         Top_Angle = 360.0 / Num_of_Tri
         Half_Angle = Top_Angle / 2
         
         pd(t)
         polygon(t, Num_of_Tri, r)
-        lt(t, Half_Angle)
+        lt(t, Half_Angle)           #Turn the direction to the straight right.
         pu(t)
         fd(t, r*2 + 10)
         Num_of_Tri += 1
 
 def polygon(t, Num_of_Tri, r):
+    '''Draws a pie graph.
+    t: Turtle
+    Num_of_Tri: Sides that the pie has
+    r: Radius
+    '''
     Top_Angle = 360.0 / Num_of_Tri
     Half_Angle = Top_Angle / 2
     Base_Angle = (180.0 - Top_Angle) / 2
     Base = 2 * r * sin(Half_Angle / 180 * pi)
 
-    rt(t, Half_Angle)
+    rt(t, Half_Angle)           #Initial starting point
     for i in range(Num_of_Tri):
-        isoscele(t, Base_Angle, r, Base)  
+        isosceles(t, Base_Angle, r, Base)  
 
-def isoscele(t, Base_Angle, r, Base):
+def isosceles(t, Base_Angle, r, Base):
+    '''Draws a isosceles triangle as a part of a single pie graph.
+    t: Turtle
+    Base_Angle: Base angle of the isosceles triangle
+    r: Radius
+    Base: The base length of the triangle
+    '''    
     fd(t, r)
     lt(t, 180 - Base_Angle)
     fd(t, Base)
@@ -39,7 +55,7 @@ def isoscele(t, Base_Angle, r, Base):
     lt(t, 180)
 
 Num_of_Tri = int(raw_input("Number of Triangle: "))
-r = int(raw_input("Radians: "))
+r = int(raw_input("Radius: "))
 mult_poly(bob, Num_of_Tri, r)
 die(bob)
 

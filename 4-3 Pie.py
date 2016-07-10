@@ -45,6 +45,8 @@ die(bob)
 
 wait_for_user()
 
+###########Original code provided by the book###########
+
 ##"""This module contains code from
 ##Think Python by Allen B. Downey
 ##http://thinkpython.com
